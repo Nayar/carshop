@@ -73,12 +73,15 @@ function App() {
   return (
     <div className="App">
       <h1> The state variable carBrandFilter is {carBrandFilter}</h1>
+
+      <input type="text" placeholder='filter' onChange={userHasSelectedaBrand}/>
+
       <SelectCarBrand 
         onuserselect = {userHasSelectedaBrand}
         list={carlist}/>
       
       <ErrorBoundary>
-        <ListofCars list={carlist.filter((car) => (car.brand === carBrandFilter))}/>
+        <ListofCars list={carlist.filter((car) => (car.brand.includes(carBrandFilter)))}/>
       </ErrorBoundary>
       <MyForm/>
     </div>
