@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import ListofCars from './ListofCars';
 import {useState} from 'react'
+import SelectCarBrand from './SelectCarBrand';
 
 const carlist = [{
   id: 1,
@@ -44,6 +45,13 @@ const carlist = [{
   name: "316",
   year: "2001-01-01",
   origin: "Europe"
+},
+{
+  id: 7,
+  brand: "kia",
+  name: "Rio",
+  year: "2001-01-01",
+  origin: "Europe"
 }]
 
 function App() {
@@ -53,11 +61,23 @@ function App() {
     setCarBrandFilter("bmw")
   }
 
+  const userHasSelectedaBrand = function(event) {
+    // event.target.value: peugeot
+    // event.target.value: bmw
+    // carBrandFilter = "bmw"
+    setCarBrandFilter(event.target.value)
+  }
+
   //const carBrandFilter = "ford"
   return (
     <div className="App">
+      <h1> The state variable carBrandFilter is {carBrandFilter}</h1>
+      <SelectCarBrand 
+        onuserselect = {userHasSelectedaBrand}
+        list={carlist}/>
+
       <button onClick={changeBrandName}>Change Brand Name</button>
-      
+
       <ListofCars list={carlist.filter(
         (car) => (car.brand === carBrandFilter))}/>
     </div>
