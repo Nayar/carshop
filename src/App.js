@@ -4,6 +4,7 @@ import ListofCars from './ListofCars';
 import {useState} from 'react'
 import SelectCarBrand from './SelectCarBrand';
 import ErrorBoundary from './ErrorBoundary';
+import MyForm from './MyForm';
 
 const carlist = [{
   id: 1,
@@ -79,7 +80,9 @@ function App() {
       <ErrorBoundary>
         <ListofCars list={carlist.filter((car) => (car.brand === carBrandFilter))}/>
       </ErrorBoundary>
+      <MyForm/>
     </div>
+    
   );
 }
 

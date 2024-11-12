@@ -3,9 +3,7 @@ import react from 'react'
 class ListofCars extends react.Component {
    
     render() {
-        if(this.props.list.length <= 1) {
-            throw('list is only 1')
-        }
+
         return (
             <>
                 <h1>This is my list of cars component</h1>
