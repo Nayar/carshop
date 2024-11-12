@@ -3,9 +3,15 @@ import react from 'react'
 // Component name should be capital
 
 class ErrorBoundary extends react.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            hasError: true
+        }
+    }
+
     render() {
-        const hasError = true
-        if(hasError){
+        if(this.state.hasError){
             return <>
                 <h1 style={{
                     backgroundColor:'red'
