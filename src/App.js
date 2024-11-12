@@ -1,23 +1,65 @@
 import logo from './logo.svg';
 import './App.css';
+import ListofCars from './ListofCars';
+import {useState} from 'react'
+
+const carlist = [{
+  id: 1,
+  brand: "ford",
+  name: "ford torino",
+  year: "1970-01-01",
+  origin: "USA"
+},
+{
+  id: 2,
+  brand: "ford",
+  name: "ford galaxie 500",
+  year: "1970-01-01",
+  origin: "USA"
+},
+{
+  id: 3,
+  brand: "chevrolet",
+  name: "chevrolet vega 2300",
+  year: "1971-01-01",
+  origin: "USA"
+},
+{
+  id: 4,
+  brand: "peugeot",
+  name: "peugeot 504 (sw)",
+  year: "1972-01-01",
+  origin: "Europe"
+},
+{
+  id: 5,
+  brand: "renault",
+  name: "renault 12 (sw)",
+  year: "1972-01-01",
+  origin: "Europe"
+},
+{
+  id: 6,
+  brand: "bmw",
+  name: "316",
+  year: "2001-01-01",
+  origin: "Europe"
+}]
 
 function App() {
+  const [carBrandFilter, setCarBrandFilter] = useState("ford");
+
+  const changeBrandName = () => {
+    setCarBrandFilter("bmw")
+  }
+
+  //const carBrandFilter = "ford"
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={changeBrandName}>Change Brand Name</button>
+      
+      <ListofCars list={carlist.filter(
+        (car) => (car.brand === carBrandFilter))}/>
     </div>
   );
 }
