@@ -3,6 +3,7 @@ import './App.css';
 import ListofCars from './ListofCars';
 import {useState} from 'react'
 import SelectCarBrand from './SelectCarBrand';
+import ErrorBoundary from './ErrorBoundary';
 
 const carlist = [{
   id: 1,
@@ -67,8 +68,10 @@ function App() {
       <SelectCarBrand 
         onuserselect = {userHasSelectedaBrand}
         list={carlist}/>
-      <ListofCars list={carlist.filter(
-        (car) => (car.brand === carBrandFilter))}/>
+      
+      <ErrorBoundary>
+        <ListofCars list={carlist.filter((car) => (car.brand === carBrandFilter))}/>
+      </ErrorBoundary>
     </div>
   );
 }
