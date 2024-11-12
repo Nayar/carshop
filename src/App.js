@@ -53,6 +53,13 @@ const carlist = [{
   name: "Rio",
   year: "2001-01-01",
   origin: "Europe"
+},
+{
+  id: 8,
+  brand: "kia",
+  name: "picanto",
+  year: "2001-01-01",
+  origin: "Europe"
 }]
 
 function App() {
